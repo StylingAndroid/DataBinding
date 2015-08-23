@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <data>
+
+    <import type="android.view.View" />
+
+    <variable
+      name="status"
+      type="com.stylingandroid.databinding.data.Status" />
+
+  </data>
+
+  <RelativeLayout
+    android:id="@+id/status_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+      android:id="@+id/status_avatar"
+      android:layout_width="64dp"
+      android:layout_height="64dp"
+      android:layout_alignParentLeft="true"
+      android:layout_alignParentStart="true"
+      android:layout_alignParentTop="true"
+      android:layout_margin="8dip"
+      android:contentDescription="@null" />
+
+    <TextView
+      android:id="@+id/status_name"
+      style="@style/Status.Name"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentTop="true"
+      android:layout_marginTop="8dip"
+      android:layout_toEndOf="@id/status_avatar"
+      android:layout_toRightOf="@id/status_avatar"
+      android:text="@{status.name}" />
+
+    <TextView
+      android:id="@+id/status_screen_name"
+      style="@style/Status.ScreenName"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignBaseline="@id/status_name"
+      android:layout_marginLeft="4dip"
+      android:layout_marginStart="4dip"
+      android:layout_toEndOf="@id/status_name"
+      android:layout_toRightOf="@id/status_name"
+      android:text="@{&quot;@&quot; + status.screenName}" />
+
+    <TextView
+      android:id="@+id/status_text"
+      style="@style/Status.Text"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_alignLeft="@id/status_name"
+      android:layout_alignParentEnd="true"
+      android:layout_alignParentRight="true"
+      android:layout_alignStart="@id/status_name"
+      android:layout_below="@id/status_name"
+      android:maxLines="2"
+      android:singleLine="false"
+      android:text="@{status.text}" />
+
+  </RelativeLayout>
+</layout>
