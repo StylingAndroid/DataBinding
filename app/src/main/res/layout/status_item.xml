@@ -10,6 +10,10 @@
       name="status"
       type="com.stylingandroid.databinding.data.Status" />
 
+    <variable
+      name="handler"
+      type="com.stylingandroid.databinding.ClickHandler" />
+
   </data>
 
   <RelativeLayout
@@ -26,7 +30,7 @@
       android:layout_alignParentTop="true"
       android:layout_margin="8dip"
       android:contentDescription="@null"
-      app:imageUrl="@{status.imageUrl}"/>
+      app:imageUrl="@{status.imageUrl}" />
 
     <TextView
       android:id="@+id/status_name"
@@ -64,6 +68,30 @@
       android:maxLines="2"
       android:singleLine="false"
       android:text="@{status.text}" />
+
+    <RelativeLayout
+      android:id="@+id/status_quoted"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_alignLeft="@id/status_text"
+      android:layout_alignStart="@id/status_text"
+      android:layout_below="@id/status_text"
+      android:layout_marginTop="8dp"
+      android:background="@color/light_grey"
+      android:onClick="@{handler.onClick}"
+      android:padding="8dp"
+      android:visibility="@{status.hasQuotedStatus ? View.VISIBLE : View.GONE}">
+
+      <TextView
+        android:id="@+id/quoted_tap"
+        style="@style/Status.Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/tap_to_load" />
+    </RelativeLayout>
 
   </RelativeLayout>
 </layout>

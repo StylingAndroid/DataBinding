@@ -5,4 +5,5 @@
 
   <color name="dark_text">#303030</color>
   <color name="grey_text">#707070</color>
+  <color name="light_grey">#D0D0D0</color>
 </resources>

@@ -17,6 +17,7 @@ public class StatusViewHolder extends RecyclerView.ViewHolder {
 
     public void bind(Status status) {
         binding.setStatus(status);
+        binding.setHandler(new ClickHandler(status));
     }
 
 }

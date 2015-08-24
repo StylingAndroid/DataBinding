@@ -17,6 +17,10 @@ public class StatusMarshaller {
 
     private Status marshall(twitter4j.Status status) {
         User user = status.getUser();
-        return new Status(user.getName(), user.getScreenName(), status.getText(), user.getBiggerProfileImageURL());
+        Status quotedStatus = null;
+        if (status.getQuotedStatus() != null) {
+            quotedStatus = marshall(status.getQuotedStatus());
+        }
+        return new Status(user.getName(), user.getScreenName(), status.getText(), user.getBiggerProfileImageURL(), quotedStatus);
     }
 }
