@@ -90,7 +90,57 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:text="@string/tap_to_load" />
+        android:text="@string/tap_to_load"
+        android:visibility="@{status.observableQuotedStatus == null ? View.VISIBLE : View.GONE}" />
+
+      <ImageView
+        android:id="@+id/quoted_status_avatar"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:contentDescription="@null"
+        android:visibility="@{status.observableQuotedStatus == null ? View.GONE : View.VISIBLE}"
+        app:imageUrl="@{status.observableQuotedStatus.imageUrl}" />
+
+      <TextView
+        android:id="@+id/quoted_status_name"
+        style="@style/Status.Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_toEndOf="@id/quoted_status_avatar"
+        android:layout_toRightOf="@id/quoted_status_avatar"
+        android:text="@{status.observableQuotedStatus.name}"
+        android:visibility="@{status.observableQuotedStatus == null ? View.GONE : View.VISIBLE}" />
+
+      <TextView
+        android:id="@+id/quoted_status_screen_name"
+        style="@style/Status.ScreenName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/quoted_status_name"
+        android:layout_marginLeft="4dip"
+        android:layout_marginStart="4dip"
+        android:layout_toEndOf="@id/quoted_status_name"
+        android:layout_toRightOf="@id/quoted_status_name"
+        android:text="@{&quot;@&quot; + status.observableQuotedStatus.screenName}"
+        android:visibility="@{status.observableQuotedStatus == null ? View.GONE : View.VISIBLE}" />
+
+      <TextView
+        android:id="@+id/quoted_status_text"
+        style="@style/Status.Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/quoted_status_name"
+        android:layout_alignStart="@id/quoted_status_name"
+        android:layout_below="@id/quoted_status_name"
+        android:singleLine="false"
+        android:text="@{status.observableQuotedStatus.text}"
+        android:visibility="@{status.observableQuotedStatus == null ? View.GONE : View.VISIBLE}" />
     </RelativeLayout>
 
   </RelativeLayout>
